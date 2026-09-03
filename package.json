@@ -1,0 +1,10 @@
+{
+  "name": "profil-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/generate-env.js"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
