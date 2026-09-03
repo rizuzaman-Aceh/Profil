@@ -1,264 +1,425 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<!doctype html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Rizu Zaman | Elite Security Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090b0f">
+  <meta name="description" content="Rizu Zaman — Cyber Security & Web Developer Portfolio.">
+  <title>Rizu Zaman | Cyber Security Portfolio</title>
 
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Rajdhani', 'sans-serif'],
-                        display: ['Orbitron', 'sans-serif'],
-                        mono: ['"Share Tech Mono"', 'monospace'],
-                    },
-                    colors: {
-                        cyber: {
-                            lightBg: '#eef2f6',
-                            panel: 'rgba(255,255,255,0.92)',
-                            border: '#cbd5e1',
-                            primary: '#0284c7',
-                            accent: '#0d9488',
-                            red: '#e11d48',
-                            darkText: '#0f172a',
-                        },
-                    },
-                    boxShadow: {
-                        glass: '0 10px 30px 0 rgba(2,132,199,0.1)',
-                        'glow-blue': '0 0 20px rgba(2,132,199,0.3)',
-                    },
-                },
-            },
-        };
-    </script>
-
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/app.js"></script>
 </head>
+
 <body>
+  <canvas id="matrix-spider-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
 
-    <!-- Background Canvas: Real-time Interactive Spider-Web & Matrix -->
-    <canvas id="matrix-spider-canvas"></canvas>
+  <div class="shell">
 
-    <div class="app-container">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">
+          <i></i><i></i><i></i>
+        </span>
 
-        <!-- Header Status Bar -->
-        <header class="relative z-20 flex justify-between items-center px-4 py-3 bg-white/90 border-b border-sky-100 backdrop-blur-md">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-satellite-dish text-teal-600 animate-pulse text-xs"></i>
-                <span class="font-mono text-[10px] text-sky-700 tracking-widest uppercase font-bold">Secure.Portal</span>
-            </div>
-            <div class="text-right">
-                <div id="live-clock" class="font-mono text-sm text-slate-900 font-bold">00:00:00</div>
-                <div id="live-date" class="font-mono text-[8px] text-slate-600 uppercase font-semibold">--</div>
-            </div>
-        </header>
+        <div>
+          <b>RZ//SEC</b>
+          <small>SECURE.PORTAL</small>
+        </div>
+      </div>
 
-        <!-- Main Viewport Content -->
-        <main class="viewport px-4 pt-4" id="main-scroll">
+      <div class="telemetry">
+        <span><em></em> SYSTEM ONLINE</span>
+        <strong id="live-clock">00:00:00</strong>
+        <small id="live-date">--</small>
+      </div>
+    </header>
 
-            <!-- TAB 1: HOME -->
-            <div id="tab-home" class="tab-pane active space-y-4 pb-6">
-                <!-- Hero Profile Section -->
-                <div class="glass-panel p-6 flex flex-col items-center text-center mt-2">
-                    <div class="profile-container mb-4">
-                        <svg class="spider-web-svg" viewBox="0 0 100 100">
-                            <g stroke="rgba(2,132,199,0.45)" stroke-width="0.8" fill="none">
-                                <circle cx="50" cy="50" r="46"/>
-                                <circle cx="50" cy="50" r="35"/>
-                                <circle cx="50" cy="50" r="24"/>
-                                <circle cx="50" cy="50" r="13"/>
-                                <line x1="50" y1="4" x2="50" y2="96"/>
-                                <line x1="4" y1="50" x2="96" y2="50"/>
-                                <line x1="17" y1="17" x2="83" y2="83"/>
-                                <line x1="17" y1="83" x2="83" y2="17"/>
-                            </g>
-                        </svg>
-                        <div class="spider-glow-ring"></div>
-                        <div class="profile-pic-wrapper">
-                            <img src="https://i.ibb.co.com/2YtYzsJm/IMG-20260823-223247.jpg" alt="Rizu Zaman" />
-                        </div>
-                        <div class="absolute -bottom-1 right-1 bg-white border border-sky-500 px-2 py-0.5 rounded-full text-[8px] font-mono text-sky-800 shadow-md z-20 flex items-center gap-1 font[...]">
-                            <div class="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></div> ONLINE
-                        </div>
-                    </div>
-                    <h1 class="font-display text-2xl font-black text-slate-900 tracking-wider uppercase mt-1">RIZU <span class="text-sky-600">ZAMAN</span></h1>
-                    <div class="h-6 mt-1 flex items-center justify-center">
-                        <span id="typewriter" class="font-mono text-xs text-teal-800 font-bold tracking-wider"></span><span class="animate-pulse bg-teal-600 w-1.5 h-3 ml-1 inline-block"></span>
-                    </div>
-                    <p class="text-xs text-slate-700 mt-2 font-medium px-2 leading-relaxed">Spesialis Cyber Security &amp; Web Developer profesional. Menghadirkan perlindungan data berstandar ting[...]</p>
-                    <div class="w-full grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-200 font-mono text-[10px] text-slate-700 font-semibold">
-                        <div class="flex items-center gap-1.5 justify-center bg-slate-100/80 p-1.5 rounded"><i class="fa-solid fa-location-dot text-sky-600"></i> Aceh / Jakarta</div>
-                        <div class="flex items-center gap-1.5 justify-center bg-slate-100/80 p-1.5 rounded"><i class="fa-solid fa-fingerprint text-teal-600"></i> ID: RZ-99X</div>
-                    </div>
-                </div>
+    <main id="main-scroll">
 
-                <!-- Info Widgets -->
-                <div class="grid grid-cols-3 gap-2">
-                    <div class="glass-panel p-2 flex flex-col items-center justify-center text-center h-24">
-                        <span class="font-mono text-[8px] text-rose-700 font-bold mb-1">RADAR THREAT</span>
-                        <div class="radar-box mx-auto my-1">
-                            <div class="radar-sweep"></div>
-                            <div class="absolute top-2 left-3 w-1 h-1 bg-rose-600 rounded-full animate-ping"></div>
-                            <div class="absolute bottom-3 right-2 w-1.5 h-1.5 bg-sky-600 rounded-full animate-ping" style="animation-delay:0.5s"></div>
-                        </div>
-                        <span class="font-mono text-[8px] text-slate-600 font-bold">Active Scan</span>
-                    </div>
-                    <div class="glass-panel p-2 flex flex-col items-center justify-center text-center h-24">
-                        <span class="font-mono text-[8px] text-slate-600 font-bold mb-1">SYSTEM STATE</span>
-                        <i class="fa-solid fa-shield-halved text-2xl text-teal-700 mb-1"></i>
-                        <span class="font-display text-[9px] font-extrabold text-slate-900 tracking-wider">SECURE 100%</span>
-                    </div>
-                    <div class="glass-panel p-2 flex flex-col items-center justify-center text-center h-24">
-                        <span class="font-mono text-[8px] text-slate-600 font-bold mb-1">CLIENT IP</span>
-                        <span class="font-mono text-[10px] text-sky-800 font-bold" id="mock-ip">192.168.1.1</span>
-                        <div class="w-full h-px bg-slate-200 my-1"></div>
-                        <div class="flex items-center gap-1 mt-1">
-                            <i class="fa-solid fa-cloud text-slate-500 text-xs"></i>
-                            <span class="font-mono text-xs font-bold text-slate-800">28&deg;C JKT</span>
-                        </div>
-                    </div>
-                </div>
+      <!-- HOME -->
+      <section class="tab-pane active" id="tab-home">
 
-                <!-- Terminal Simulator -->
-                <div class="glass-panel p-3 bg-slate-900 text-slate-100 font-mono text-[10px] shadow-lg">
-                    <div class="flex gap-1.5 mb-2 border-b border-slate-700 pb-2">
-                        <div class="w-2.5 h-2.5 rounded-full bg-rose-500"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-teal-400"></div>
-                        <span class="text-slate-400 ml-2 font-bold tracking-wider">root@rizu-enterprise:~#</span>
-                    </div>
-                    <div id="terminal-output" class="text-teal-300 h-24 overflow-y-auto break-words leading-relaxed pr-1 font-semibold"></div>
-                </div>
+        <div class="hero card">
+          <div class="scanline"></div>
+
+          <div class="profile-orbit">
+            <div class="orbit orbit-a"></div>
+            <div class="orbit orbit-b"></div>
+
+            <div class="profile">
+              <img
+                src="https://i.ibb.co.com/2YtYzsJm/IMG-20260823-223247.jpg"
+                alt="Rizu Zaman"
+                loading="eager"
+              >
             </div>
 
-            <!-- TAB 2: SKILLS -->
-            <div id="tab-skills" class="tab-pane space-y-4 pb-6">
-                <h2 class="font-display text-sm text-sky-800 font-bold mb-2 flex items-center gap-2 border-b border-sky-200 pb-2">
-                    <i class="fa-solid fa-microchip"></i> TECHNICAL MATRIX
-                </h2>
-                <div class="glass-panel p-4">
-                    <div class="space-y-4 font-mono text-[11px]">
-                        <div><div class="flex justify-between text-slate-900 mb-1 font-bold"><span>Penetration Testing (VAPT)</span> <span class="text-teal-700 font-extrabold">95%</span></div><di[...]</div>
-                        <div><div class="flex justify-between text-slate-900 mb-1 font-bold"><span>Web Dev (React/JS/CSS)</span> <span class="text-sky-700 font-extrabold">90%</span></div><div cla[...]</div>
-                        <div><div class="flex justify-between text-slate-900 mb-1 font-bold"><span>Network Architecture</span> <span class="text-amber-700 font-extrabold">88%</span></div><div cla[...]</div>
-                        <div><div class="flex justify-between text-slate-900 mb-1 font-bold"><span>Linux Server Admin</span> <span class="text-teal-700 font-extrabold">92%</span></div><div class=[...]</div>
-                    </div>
-                </div>
-                <h3 class="font-mono text-[10px] text-slate-600 uppercase tracking-widest text-center mt-4 font-extrabold">Environment &amp; Tools</h3>
-                <div class="grid grid-cols-4 gap-2">
-                    <div class="glass-panel p-3 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white transition"><i class="fa-brands fa-linux text-2xl text-sl[...]</div>
-                    <div class="glass-panel p-3 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white transition"><i class="fa-brands fa-ubuntu text-2xl text-[[...]</div>
-                    <div class="glass-panel p-3 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white transition"><i class="fa-brands fa-windows text-2xl text-[...]</div>
-                    <div class="glass-panel p-3 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white transition"><i class="fa-brands fa-apple text-2xl text-sl[...]</div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-sky-600 transition"><i class="fa-brands fa-react"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-amber-600 transition"><i class="fa-brands fa-python"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-slate-950 transition"><i class="fa-brands fa-github"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-blue-600 transition"><i class="fa-brands fa-docker"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-teal-700 transition"><i class="fa-solid fa-terminal"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-rose-700 transition"><i class="fa-solid fa-bug"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-sky-700 transition"><i class="fa-solid fa-network-wired"></i></div>
-                    <div class="glass-panel p-3 flex justify-center items-center text-2xl text-slate-600 hover:text-blue-700 transition"><i class="fa-brands fa-atlassian"></i></div>
-                </div>
+            <span class="online-dot">ONLINE</span>
+          </div>
+
+          <div class="eyebrow">
+            CYBER SECURITY // WEB ENGINEERING
+          </div>
+
+          <h1>
+            RIZU <span>ZAMAN</span>
+          </h1>
+
+          <p class="type-line">
+            <span id="typewriter"></span><b>_</b>
+          </p>
+
+          <p class="hero-copy">
+            Membangun pengalaman digital yang aman, responsif, dan
+            berkarakter dengan pendekatan security-first,
+            interface engineering, dan sistem yang siap dikembangkan.
+          </p>
+
+          <div class="identity-grid">
+            <div>
+              <small>LOCATION</small>
+              <b>Aceh / Jakarta</b>
             </div>
 
-            <!-- TAB 3: OPS LOG -->
-            <div id="tab-ops" class="tab-pane space-y-4 pb-6">
-                <h2 class="font-display text-sm text-teal-800 font-bold mb-2 flex items-center gap-2 border-b border-teal-200 pb-2">
-                    <i class="fa-solid fa-graduation-cap"></i> ACADEMIC RECORDS
-                </h2>
-                <div class="glass-panel p-4 font-sans text-sm">
-                    <div class="relative border-l-2 border-sky-500 ml-2 pl-4 space-y-5">
-                        <div class="relative">
-                            <div class="absolute -left-[22px] top-1.5 w-2.5 h-2.5 rounded-full bg-sky-600 ring-4 ring-sky-100"></div>
-                            <span class="bg-sky-100 text-sky-800 font-mono text-[8px] px-2 py-0.5 rounded inline-block mb-1 font-extrabold">TARGET 2026</span>
-                            <h4 class="font-extrabold text-slate-900 text-base">S1 Teknik Informatika</h4>
-                            <span class="font-mono text-sky-800 text-xs font-bold">Universitas Indonesia (UI)</span>
-                            <p class="text-[11px] text-slate-700 font-medium mt-1 leading-snug">Fokus pada rekayasa perangkat lunak aman, komputasi awan, dan arsitektur sistem informasi.</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -left-[22px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-500 ring-4 ring-slate-200"></div>
-                            <span class="bg-slate-200 text-slate-800 font-mono text-[8px] px-2 py-0.5 rounded inline-block mb-1 font-extrabold">LULUS 2017</span>
-                            <h4 class="font-extrabold text-slate-900 text-base">Teknik Komputer &amp; Jaringan</h4>
-                            <span class="font-mono text-slate-700 text-xs font-bold">SMK Negeri 1 Nisam</span>
-                            <p class="text-[11px] text-slate-700 font-medium mt-1 leading-snug">Fondasi jaringan enterprise, administrasi server Linux, dan infrastruktur perangkat keras.</p>
-                        </div>
-                    </div>
-                </div>
-                <h2 class="font-display text-sm text-sky-800 font-bold mb-2 flex items-center gap-2 border-b border-sky-200 pb-2 mt-4">
-                    <i class="fa-solid fa-briefcase"></i> OPERATIONS LOG
-                </h2>
-                <div class="space-y-3">
-                    <div class="glass-panel p-4 border-l-4 border-l-sky-600 relative overflow-hidden">
-                        <div class="flex justify-between items-start mb-1"><h3 class="font-bold text-slate-900 text-sm">Project OMNI Secure</h3><span class="bg-teal-100 text-teal-900 text-[8px] f[...]</div>
-                        <p class="text-[11px] text-slate-700 font-medium mb-2 leading-tight">Pengembangan aplikasi web end-to-end dengan enkripsi AES-256 dan perlindungan data tingkat lanjut.</p>
-                        <div class="flex gap-2 text-[9px] font-mono text-slate-700 font-bold"><span class="text-sky-800">#ReactJS</span> <span class="text-teal-800">#Security</span> <span>#NodeJS[...]</div>
-                    </div>
-                    <div class="glass-panel p-4 border-l-4 border-l-amber-500 relative overflow-hidden">
-                        <div class="flex justify-between items-start mb-1"><h3 class="font-bold text-slate-900 text-sm">Vuln Scanner Core</h3><span class="bg-amber-100 text-amber-900 text-[8px] f[...]</div>
-                        <p class="text-[11px] text-slate-700 font-medium mb-2 leading-tight">Automasi Python untuk audit keamanan jaringan lokal berkala dengan laporan PDF terenkripsi.</p>
-                        <div class="flex gap-2 text-[9px] font-mono text-slate-700 font-bold"><span class="text-amber-800">#Python</span> <span class="text-rose-700">#Nmap</span> <span>#Automatio[...]</div>
-                    </div>
-                </div>
+            <div>
+              <small>PROFILE ID</small>
+              <b>RZ-99X</b>
             </div>
 
-            <!-- TAB 4: COMMS -->
-            <div id="tab-comms" class="tab-pane space-y-4 pb-6">
-                <h2 class="font-display text-sm text-rose-700 font-bold mb-2 flex items-center gap-2 border-b border-rose-200 pb-2">
-                    <i class="fa-solid fa-walkie-talkie"></i> SECURE COMMUNICATIONS
-                </h2>
-                <div class="grid grid-cols-2 gap-3">
-                    <a href="https://wa.me/62895328323138" target="_blank" rel="noopener" class="glass-panel p-4 flex flex-col items-center justify-center text-center hover:border-teal-500 transi[...]">
-                        <i class="fa-brands fa-whatsapp text-3xl text-slate-500 group-hover:text-teal-600 mb-2 transition"></i>
-                        <span class="font-mono text-[10px] font-bold text-slate-900 tracking-wider">WHATSAPP</span>
-                        <span class="font-mono text-[9px] text-slate-700 mt-1 font-semibold">0895328323138</span>
-                    </a>
-                    <a href="mailto:rizuzamantkj3@gmail.com" class="glass-panel p-4 flex flex-col items-center justify-center text-center hover:border-sky-500 transition group cursor-pointer">
-                        <i class="fa-solid fa-envelope text-3xl text-slate-500 group-hover:text-sky-600 mb-2 transition"></i>
-                        <span class="font-mono text-[10px] font-bold text-slate-900 tracking-wider">EMAIL</span>
-                        <span class="font-mono text-[9px] text-slate-700 mt-1 truncate w-full px-1 font-semibold">rizuzamantkj3@</span>
-                    </a>
-                </div>
-                <div class="glass-panel p-5 shadow-sm">
-                    <div class="flex items-center gap-2 mb-4 border-b border-slate-200 pb-2">
-                        <i class="fa-solid fa-lock text-sky-600 text-[10px]"></i>
-                        <span class="font-mono text-[10px] text-slate-700 uppercase tracking-widest font-extrabold">Encrypted Message Gateway</span>
-                    </div>
-                    <form id="contact-form" class="space-y-3">
-                        <div><input type="text" id="contact-name" placeholder="ID Entitas / Nama Lengkap" required class="w-full bg-slate-50 border border-slate-300 rounded text-slate-900 font-mo[...]</div>
-                        <div><input type="email" id="contact-email" placeholder="Alamat Email Korporat / Pribadi" required class="w-full bg-slate-50 border border-slate-300 rounded text-slate-900[...]"></div>
-                        <div><textarea id="contact-message" placeholder="Detail Pesan atau Permintaan Proyek..." rows="3" required class="w-full bg-slate-50 border border-slate-300 rounded text-s[...]"></div>
-                        <button type="submit" class="w-full bg-sky-600 text-white font-display font-bold text-xs py-3 rounded hover:bg-sky-700 transition shadow-md flex items-center justify-cente[...]">
-                            <i class="fa-solid fa-paper-plane"></i> TRANSMIT SECURE DATA
-                        </button>
-                        <div id="contact-status" class="text-xs font-mono text-center hidden"></div>
-                    </form>
-                </div>
+            <div>
+              <small>STATUS</small>
+              <b class="live">AVAILABLE</b>
             </div>
 
-        </main>
+            <div>
+              <small>FOCUS</small>
+              <b>SECURITY / WEB</b>
+            </div>
+          </div>
+        </div>
 
-        <!-- Bottom Navigation Bar -->
-        <nav class="nav-bar">
-            <button class="nav-btn active" data-tab="home"><i class="fa-solid fa-house-chimney-crack"></i><span>HOME</span></button>
-            <button class="nav-btn" data-tab="skills"><i class="fa-solid fa-chart-radar"></i><span>SKILLS</span></button>
-            <button class="nav-btn" data-tab="ops"><i class="fa-solid fa-folder-tree"></i><span>OPS LOG</span></button>
-            <button class="nav-btn" data-tab="comms"><i class="fa-solid fa-walkie-talkie"></i><span>COMMS</span></button>
-        </nav>
-    </div>
+        <!-- METRICS -->
+        <div class="metric-grid">
 
-    <!-- Main JavaScript Logic -->
-    <script src="/_env.js"></script>
-    <script src="js/app.js"></script>
+          <article class="card metric radar-card">
+            <small>THREAT RADAR</small>
+
+            <div class="radar">
+              <span></span>
+            </div>
+
+            <b>ACTIVE SCAN</b>
+          </article>
+
+          <article class="card metric">
+            <small>SYSTEM STATE</small>
+
+            <div class="shield">⌁</div>
+
+            <strong>SECURE 100%</strong>
+            <b>MONITORED</b>
+          </article>
+
+          <article class="card metric">
+            <small>LOCAL TELEMETRY</small>
+
+            <strong id="mock-ip">192.168.1.1</strong>
+
+            <div class="divider"></div>
+
+            <b id="weather">JKT // --°C</b>
+          </article>
+
+        </div>
+
+        <!-- TERMINAL -->
+        <article class="card terminal">
+
+          <div class="terminal-head">
+            <span class="dots">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+
+            <b>root@r2-sec:~#</b>
+            <span>LIVE</span>
+          </div>
+
+          <pre id="terminal-output" aria-live="polite"></pre>
+
+        </article>
+
+      </section>
+
+      <!-- SKILLS -->
+      <section class="tab-pane" id="tab-skills">
+
+        <div class="section-head">
+          <span>01</span>
+          <h2>TECHNICAL MATRIX</h2>
+        </div>
+
+        <article class="card skills-card">
+
+          <div class="skill">
+            <div>
+              <b>Penetration Testing / VAPT</b>
+              <strong>95%</strong>
+            </div>
+
+            <i>
+              <u style="width:95%"></u>
+            </i>
+          </div>
+
+          <div class="skill">
+            <div>
+              <b>Web Development / React / JS</b>
+              <strong>90%</strong>
+            </div>
+
+            <i>
+              <u style="width:90%"></u>
+            </i>
+          </div>
+
+          <div class="skill">
+            <div>
+              <b>Network Architecture</b>
+              <strong>88%</strong>
+            </div>
+
+            <i>
+              <u style="width:88%"></u>
+            </i>
+          </div>
+
+          <div class="skill">
+            <div>
+              <b>Linux Server Administration</b>
+              <strong>92%</strong>
+            </div>
+
+            <i>
+              <u style="width:92%"></u>
+            </i>
+          </div>
+
+        </article>
+
+        <div class="section-head compact">
+          <span>02</span>
+          <h2>ENVIRONMENT & TOOLS</h2>
+        </div>
+
+        <div class="tool-grid">
+          <div class="tool">KALI<span>LINUX</span></div>
+          <div class="tool">UBUNTU<span>SERVER</span></div>
+          <div class="tool">WINDOWS<span>ADMIN</span></div>
+          <div class="tool">MACOS<span>WORKFLOW</span></div>
+          <div class="tool">REACT<span>FRONTEND</span></div>
+          <div class="tool">PYTHON<span>AUTOMATION</span></div>
+          <div class="tool">GIT<span>VERSIONING</span></div>
+          <div class="tool">DOCKER<span>CONTAINER</span></div>
+          <div class="tool">LINUX<span>TERMINAL</span></div>
+          <div class="tool">VAPT<span>TESTING</span></div>
+          <div class="tool">NETWORK<span>INFRA</span></div>
+          <div class="tool">CLOUD<span>DEPLOYMENT</span></div>
+        </div>
+
+      </section>
+
+      <!-- OPS -->
+      <section class="tab-pane" id="tab-ops">
+
+        <div class="section-head">
+          <span>03</span>
+          <h2>ACADEMIC & OPERATIONS</h2>
+        </div>
+
+        <article class="card timeline">
+
+          <div class="event target">
+            <small>TARGET / 2026</small>
+
+            <h3>S1 Teknik Informatika</h3>
+
+            <b>Universitas Indonesia (UI)</b>
+
+            <p>
+              Target pendidikan lanjutan dengan fokus rekayasa
+              perangkat lunak, sistem informasi, cloud, dan keamanan.
+            </p>
+          </div>
+
+          <div class="event">
+            <small>LULUS / 2019</small>
+
+            <h3>Teknik Komputer & Jaringan</h3>
+
+            <b>SMK Negeri 1 Nisam</b>
+
+            <p>
+              Fondasi jaringan, perangkat keras, troubleshooting,
+              dan administrasi sistem.
+            </p>
+          </div>
+
+        </article>
+
+        <div class="section-head compact">
+          <span>04</span>
+          <h2>OPERATIONS LOG</h2>
+        </div>
+
+        <div class="ops-grid">
+
+          <article class="card op">
+            <small>PROJECT 01</small>
+
+            <h3>OMNI SECURE</h3>
+
+            <p>
+              Eksperimen arsitektur portal dengan security-first UI,
+              telemetry, dan deployment workflow.
+            </p>
+
+            <span>STATUS: ACTIVE</span>
+          </article>
+
+          <article class="card op">
+            <small>PROJECT 02</small>
+
+            <h3>VULN SCANNER CORE</h3>
+
+            <p>
+              Konsep tooling untuk pemeriksaan permukaan aplikasi
+              dan pencatatan temuan secara terstruktur.
+            </p>
+
+            <span>STATUS: R&D</span>
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- COMMS -->
+      <section class="tab-pane" id="tab-comms">
+
+        <div class="section-head">
+          <span>05</span>
+          <h2>SECURE COMMS</h2>
+        </div>
+
+        <div class="contact-grid">
+
+          <article class="card contact-info">
+
+            <small>DIRECT CHANNEL</small>
+
+            <h3>
+              Let's build something secure.
+            </h3>
+
+            <p>
+              Gunakan kanal langsung untuk kolaborasi,
+              project, atau kebutuhan web & security.
+            </p>
+
+            <a
+              href="https://wa.me/62895328323138"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WHATSAPP ↗
+            </a>
+
+            <a href="mailto:rizuzamantkj3@gmail.com">
+              EMAIL ↗
+            </a>
+
+          </article>
+
+          <form class="card contact-form" id="contact-form">
+
+            <label>
+              NAME
+              <input
+                name="name"
+                required
+                maxlength="80"
+                autocomplete="name"
+              >
+            </label>
+
+            <label>
+              EMAIL
+              <input
+                type="email"
+                name="email"
+                required
+                maxlength="160"
+                autocomplete="email"
+              >
+            </label>
+
+            <label>
+              MESSAGE
+              <textarea
+                name="message"
+                required
+                maxlength="2000"
+                rows="5"
+              ></textarea>
+            </label>
+
+            <button type="submit">
+              TRANSMIT MESSAGE
+              <span>→</span>
+            </button>
+
+            <p id="form-status" role="status"></p>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+
+      <button class="nav-btn active" data-tab="home">
+        <span>⌂</span>
+        HOME
+      </button>
+
+      <button class="nav-btn" data-tab="skills">
+        <span>◇</span>
+        SKILLS
+      </button>
+
+      <button class="nav-btn" data-tab="ops">
+        <span>▣</span>
+        OPS
+      </button>
+
+      <button class="nav-btn" data-tab="comms">
+        <span>↗</span>
+        COMMS
+      </button>
+
+    </nav>
+
+  </div>
 </body>
 </html>
