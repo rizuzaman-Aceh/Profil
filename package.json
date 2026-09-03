@@ -2,7 +2,7 @@
   "name": "profil-site",
   "version": "1.0.0",
   "scripts": {
-    "build": "node scripts/generate-env.js"
+    "build": "node scripts/generate-env.js && node scripts/copy-static.js"
   },
   "engines": {
     "node": ">=14"
